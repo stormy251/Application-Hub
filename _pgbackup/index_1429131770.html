@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0"/>
+	<title>Application Hub</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic"/>
+
+</head>
+<body ng-app="routerApp" ng-controller="ListController" layout="column" layout-align="top center">
+    
+    <md-toolbar>
+        <div class="md-toolbar-tools" id="searchBar">
+            <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings">
+                <md-icon md-svg-icon="bower_components/icons/ic_menu_24px.svg"></md-icon>
+            </md-button>
+            <h2 style="padding-left:20px" >
+                <span>Insert page name here</span>
+            </h2>     
+            <span flex></span>
+            <md-button ng-click="goToTop()" class="md-icon-button" aria-label="Move To Top">
+                <md-icon md-svg-icon="bower_components/icons/ic_expand_less_24px.svg"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+      <md-toolbar>
+        <h1 class="md-toolbar-tools">Applications</h1>
+      </md-toolbar>
+      <md-content ng-controller="LeftCtrl">
+        <md-list layout="column" layout-margin>
+            <md-subheader flex class="md-no-sticky">Choose your app</md-subheader>
+            <md-button flex class="md-raised md-default-theme">
+                <md-list-item layout="row" layout-align="center">
+                    Home
+                </md-list-item>                        
+            </md-button>
+            <md-button flex class="md-raised md-default-theme">
+                <md-list-item layout="row" layout-align="center">
+                    Flickr Search
+                </md-list-item>                        
+            </md-button>                     
+        </md-list>
+        <md-button ng-click="close()" class="md-primary">
+          Close Sidenav Left
+        </md-button>
+      </md-content>
+    </md-sidenav>
+    
+<!--    This is where the router will place content-->
+    <div ui-view>
+    
+    </div>
+    
+    <script src="jquery-2.1.3.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/hammerjs/hammer.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
