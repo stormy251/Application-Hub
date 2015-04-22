@@ -8,18 +8,18 @@
         <link rel="stylesheet" type="text/css" href="style.css"/>         
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic"/>   
         <style type="text/css">
-            a.ui-link{
+            div.inset{
                 text-decoration: none;   
             }
         </style>
     </head>     
-    <body ng-app="routerApp" ng-controller="ListController" layout="column" layout-align="top center"> 
+    <body ng-app="routerApp" ng-controller="ListController" layout="column" layout-align="top center" style="background-color:{{backgroundcolor}}"> 
         <md-toolbar> 
             <div class="md-toolbar-tools" id="searchBar"> 
                 <md-button ng-click="toggleLeft()" class="md-icon-button" aria-label="Settings"> 
                     <md-icon md-svg-icon="bower_components/icons/ic_menu_24px.svg"></md-icon>                     
                 </md-button>                 
-                <h2 style="padding-left:20px"> <span>Insert page name here</span> </h2> 
+                <h2 style="padding-left:20px"> <span>{{pageName}}</span> </h2> 
                 <span flex></span> 
                 <md-button ng-click="goToTop()" class="md-icon-button" aria-label="Move To Top"> 
                     <md-icon md-svg-icon="bower_components/icons/ic_expand_less_24px.svg"></md-icon>                     
@@ -31,28 +31,73 @@
                 <h1 class="md-toolbar-tools">Applications</h1> 
             </md-toolbar>             
             <md-content ng-controller="LeftCtrl"> 
-                <md-list layout="column" layout-margin> 
-                    <md-subheader flex class="md-no-sticky">Choose your app</md-subheader>                     
-                        <md-button flex class="md-raised md-default-theme">
-                            <a ng-click="close();" class="ui-link" ui-sref="home">
-                                <md-list-item layout="row" layout-align="center" style="color:red"> 
+                <md-list layout="column"> 
+                    <md-subheader flex class="md-no-sticky">Choose your app</md-subheader>
+                    <md-item ng-click="close(); changePageName('HOME');" class="ui-sref" ui-sref="home">
+                        <a>
+                            <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                                <div class="inset">
+                                    <md-icon md-svg-icon="bower_components/icons/ic_home_24px.svg"></md-icon>
+                                </div>
+                                <div class="inset">
                                     Home
-                                </md-list-item>   
-                            </a>
-                        </md-button>                    
-                    <md-button flex class="md-raised md-default-theme"> 
-                        <md-list-item layout="row" layout-align="center"> 
-                            Flickr Search
-                        </md-list-item>                         
-                    </md-button>                     
+                                </div>
+                            </md-item-content>
+                        </a>
+                    </md-item>
+                    <md-item>
+                        <a>
+                            <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                                <div class="inset">
+                                    <md-icon md-svg-icon="bower_components/icons/ic_camera_alt_24px.svg"></md-icon>
+                                </div>
+                                <div class="inset">
+                                    Flickr Search
+                                </div>
+                            </md-item-content>
+                        </a>
+                    </md-item>                  
                 </md-list>                 
             </md-content>             
         </md-sidenav>         
         <!--    This is where the router will place content-->   
         <br>
+        
         <div ui-view> 
-                
-        </div>         
+            <!-- This is the home view  -->
+            <div layout-align="center center">
+                <md-content style="background-color:{{backgroundcolor}}">
+                    <md-card class="md-whiteframe-z2" style="background-color:{{cardBackGround}}" layout="column">
+
+                        <!--Card Header-->
+                        <md-toolbar class="md-accent" >
+                            <h1 class="md-toolbar-tools" layout-align="center">
+                                <span>Welcome To The Application Hub</span>
+                            </h1>
+                          </md-toolbar>
+
+                        <!--Card content-->
+                      <md-card-content  layout="column" layout-align="center center">
+                          <md-list layout-align="center center">
+                              <p>
+                           This web-app will serve as a material design reference. this reference contains different elements, as well as customized theming of the angularjs material design framework. You can access these apps in one of two ways.
+                              </p>
+                            <md-divider></md-divider>  
+                              <ol >
+                                <li>Simply click the menu button above (<md-icon class="md-primary" md-svg-icon="bower_components/icons/ic_menu_24px.svg"></md-icon>). This will bring you to the side navigation bar. </li>
+                                <li>Click the App Hub Button below (APP HUB <md-icon class="md-primary" md-svg-icon="bower_components/icons/ic_work_24px.svg"></md-icon>) to access the bottom toolbox.</li>
+                              </ol>
+                            <md-divider></md-divider>  
+                                <br>
+                            </md-list>
+                              <md-button  class="md-raised md-accent">App Hub <md-icon md-svg-icon="bower_components/icons/ic_work_24px.svg"></md-icon></md-button>  
+                          
+                      </md-card-content>
+                    </md-card>
+                </md-content>
+            </div>
+        </div>  
+ 
         
         <script src="jquery-2.1.3.min.js"></script>         
         <script src="bower_components/angular/angular.min.js"></script>         
@@ -60,7 +105,7 @@
         <script src="bower_components/angular-aria/angular-aria.min.js"></script>         
         <script src="bower_components/angular-animate/angular-animate.min.js"></script>         
         <script src="bower_components/hammerjs/hammer.min.js"></script>         
-        <script src="bower_components/angular-material/angular-material.min.js"></script>         
+        <script src="bower_components/angular-material/angular-material.js"></script>         
         <script src="app.js"></script>         
     </body>     
 </html>
