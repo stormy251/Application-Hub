@@ -13,6 +13,33 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
         url:'/home',
         templateUrl: 'home.html'
     });
+    $stateProvider.state('flickrSearch',{
+        url:'/flickrSearch',
+        templateUrl: 'flickrSearch.html',
+        controller: function($scope,$http){
+            $scope.search = function(){
+            $scope.isSearching = true;
+            
+            $http({
+                method: 'GET',
+                url: 'https://api.flickr.com/services/rest',
+                params: {
+                    method: 'flickr.photos.search',
+                    api_key: '67eb66416a193c7185c764ad778fe1e4',
+                    text: $scope.searchTerm,
+                    format: 'json',
+                    nojsoncallback: 1
+                }
+            }).success(function(data){
+                $scope.results = data;
+                $scope.isSearching = false;
+            }).error(function(error){
+                console.error(error);
+                $scope.isSearching = false;
+            });
+        };   
+        }
+    });
 });
 
 routerApp.controller('ListController',  function($scope, $http, $timeout, $location, $anchorScroll, $mdSidenav, $log){

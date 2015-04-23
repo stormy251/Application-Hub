@@ -1,0 +1,28 @@
+<section layout="row" flex>
+    <md-content flex layout-padding style="background-color:{{backgroundcolor}}">
+        <div layout="column" layout-fill layout-align="center center" class="app-content" id="searchBar">
+            
+                <form ng-submit="search()"  >
+                    <div layout="row" layout-align="center center" ng-show="!isSearching">
+                        <md-input-container>
+                            <label>Search For</label>
+                            <input type="text" style="padding-right:10px" label="Search for" ng-model="searchTerm" class="long"></input>
+                        </md-input-container>
+                        <md-button class="md-icon-button" aria-label="Settings">
+                            <md-icon md-svg-icon="bower_components/icons/ic_search_24px.svg"></md-icon>
+                        </md-button>
+                    </div>
+                    
+                    <md-progress-circular ng-if="isSearching" md-mode="indeterminate"></md-progress-circular>
+                    
+                </form>
+             
+            <md-card ng-repeat="picture in results.photos.photo" style="background-color:{{cardBackGround}}">
+                <img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg" alt="" class="md-card-image"/>
+                <h3>{{picture.title}}</h3>
+            </md-card>
+            
+            <div flex></div>
+        </div>
+        
+    </md-content>
