@@ -13,7 +13,7 @@
             }
         </style>
     </head>     
-    <body ng-app="routerApp" ng-controller="ListController" layout="column" layout-align="top center" style="background-color:{{backgroundcolor}}"> 
+    <body ng-app="routerApp" ng-controller="ListController" layout="column" layout-align="top center" style="background-color:{{backgroundcolor}}" md-theme="{{themeName}}"> 
         
         <!-- This is the title bar.        -->
         <md-toolbar class="md-fixed"> 
@@ -25,9 +25,13 @@
                 <span flex></span> 
                 <md-button ng-click="goToTop()" class="md-icon-button" aria-label="Move To Top"> 
                     <md-icon md-svg-icon="bower_components/icons/ic_expand_less_24px.svg"></md-icon>                     
-                </md-button>                 
+                </md-button>
+                <md-button ng-click="showGridBottomSheet($event)">
+                    <md-icon md-svg-icon="bower_components/icons/ic_more_vert_24px.svg"></md-icon>
+                </md-button>
             </div>             
         </md-toolbar>   
+        <br>
         
         <md-content>
         <!--    This is where the router will place content-->
@@ -53,13 +57,9 @@
                                 <md-divider></md-divider>  
                                   <ol >
                                     <li>Simply click the menu button above (<md-icon class="md-primary" md-svg-icon="bower_components/icons/ic_menu_24px.svg"></md-icon>). This will bring you to the side navigation bar. </li>
-                                    <li>Click the App Hub Button below (APP HUB <md-icon class="md-primary" md-svg-icon="bower_components/icons/ic_work_24px.svg"></md-icon>) to access the bottom toolbox.</li>
+                                    <li>Click the Options button (<md-icon class="md-primary" md-svg-icon="bower_components/icons/ic_more_vert_24px.svg"></md-icon>) to bring up a bottom toolbox, to further customize your application.</li>
                                   </ol>
-                                <md-divider></md-divider>  
-                                    <br>
                                 </md-list>
-                                  <md-button  class="md-raised md-accent">App Hub <md-icon md-svg-icon="bower_components/icons/ic_work_24px.svg"></md-icon></md-button>  
-
                           </md-card-content>
                         </md-card>
                     </md-content>
@@ -102,9 +102,9 @@
                     </md-item>                  
                 </md-list>                 
             </md-content>             
-        </md-sidenav>         
-        <br>
+        </md-sidenav>    
         
+
 
         <script src="jquery-2.1.3.min.js"></script>         
         <script src="bower_components/angular/angular.min.js"></script>         

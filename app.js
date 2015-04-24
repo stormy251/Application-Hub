@@ -7,6 +7,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
     
     //This is selecting the default theming of the entire site.
     $mdThemingProvider.theme('default').primaryPalette('indigo').accentPalette('green');
+    $mdThemingProvider.theme('greenIndigo').primaryPalette('green').accentPalette('indigo');
     
     //Setting the Route for the Main page.
     $stateProvider.state('home',{
@@ -42,7 +43,10 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
     });
 });
 
-routerApp.controller('ListController',  function($scope, $http, $timeout, $location, $anchorScroll, $mdSidenav, $log){
+routerApp.controller('ListController',  function($scope, $http, $timeout, $location, $anchorScroll, $mdSidenav, $log, $mdBottomSheet){
+    
+    //Selecting the theme
+    $scope.themeName = 'default';
     
     //setting the color of the backdrop for the cards
     $scope.backgroundcolor = "#F2F2F2";
@@ -52,6 +56,16 @@ routerApp.controller('ListController',  function($scope, $http, $timeout, $locat
     
     //setting the home page title
     $scope.pageName = "HOME";
+    
+    
+    
+    $scope.showGridBottomSheet = function($event){
+        $mdBottomSheet.show({
+            templateUrl: 'bottom-sheet-grid.html',
+            controller: 'GridBottomSheetCtrl',
+            targetEvent: $event
+        })  
+    };
     
     //this is the static carat in the top bar that lets the user set focus to the top.
     $scope.goToTop = function() {
@@ -73,8 +87,15 @@ routerApp.controller('ListController',  function($scope, $http, $timeout, $locat
     
     $scope.changePageName = function(name){
         $scope.pageName = name;    
-    }
+    };
 
+});
+
+//this is the bottomsheet controller
+routerApp.controller('GridBottomSheetCtrl',function($scope, $mdBottomSheet){
+    $scope.close = function(){
+        $mdBottomSheet.hide();
+    };
 });
 
 //this is the controller that allows the close function to apply to close the opened instance of the side nav.
