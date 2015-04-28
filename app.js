@@ -6,7 +6,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
     //setting the configuration for the app as well as the UI routing.
     
     //This is selecting the default theming of the entire site.
-    $mdThemingProvider.theme('default').primaryPalette('indigo').accentPalette('green');
+    $mdThemingProvider.theme('default').primaryPalette('red').accentPalette('green');
     $mdThemingProvider.theme('greenIndigo').primaryPalette('green').accentPalette('indigo');
     
     //Setting the Route for the Main page.
