@@ -34,37 +34,11 @@
         <br>
         
         <md-content>
-        <!--    This is where the router will place content-->
-        <div ui-view> 
-                <!-- This is the home view  -->
-                <div layout-align="center center" id="searchBar">
-                    <md-content style="background-color:{{backgroundcolor}}">
-                        <md-card class="md-whiteframe-z2" style="background-color:{{cardBackGround}}" layout="column">
-
-                            <!--Card Header-->
-                            <md-toolbar class="md-accent" >
-                                <h1 class="md-toolbar-tools" layout-align="center">
-                                    <span>Welcome To The Application Hub</span>
-                                </h1>
-                              </md-toolbar>
-
-                            <!--Card content-->
-                          <md-card-content  layout="column" layout-align="center center">
-                              <md-list layout-align="center center">
-                                  <p>
-                               This web-app will serve as a material design reference. this reference contains different elements, as well as customized theming of the angularjs material design framework. You can access these apps in one of two ways.
-                                  </p>
-                                <md-divider></md-divider>  
-                                  <ol >
-                                    <li>Simply click the menu button above (<md-icon class="md-primary" md-svg-icon="bower_components/icons/ic_menu_24px.svg"></md-icon>). This will bring you to the side navigation bar. </li>
-                                    <li>Click the Options button (<md-icon class="md-primary" md-svg-icon="bower_components/icons/ic_more_vert_24px.svg"></md-icon>) to bring up a bottom toolbox, to further customize your application.</li>
-                                  </ol>
-                                </md-list>
-                          </md-card-content>
-                        </md-card>
-                    </md-content>
-                </div>
-            </div>  
+            <!--    This is where the router will place content-->
+            <div ui-view> 
+                    <!-- This is where the differnt views will be placed.-->
+                
+            </div>
         </md-content>
         
         
@@ -96,6 +70,18 @@
                                 </div>
                                 <div class="inset">
                                     Flickr Search
+                                </div>
+                            </md-item-content>
+                        </a>
+                    </md-item>  
+                    <md-item  ng-click="close(); changePageName('THEME MANAGER');" class="ui-sref" ui-sref="themeManager">
+                        <a>
+                            <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                                <div class="inset">
+                                    <md-icon md-svg-icon="bower_components/icons/ic_color_lens_24px.svg"></md-icon>
+                                </div>
+                                <div class="inset">
+                                    Theme Manager
                                 </div>
                             </md-item-content>
                         </a>

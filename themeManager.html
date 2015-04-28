@@ -1,0 +1,50 @@
+<md-content style="background-color:{{backgroundcolor}}">
+    <md-card class="md-whiteframe-z2" style="background-color:{{cardBackGround}}" layout="column">
+
+        <!--Card Header-->
+        <md-toolbar class="md-accent" >
+            <h1 class="md-toolbar-tools" layout-align="center">
+                <span>Select Your Application Hub Theme</span>
+            </h1>
+          </md-toolbar>
+
+        <!--Card content-->
+      <md-card-content  layout="column" layout-align="center center">
+          <md-list layout-align="center center">
+              <p>
+           This section here needs to tell the user how they can select their theme. Make it simple. perhaps embed a quick video explaining the primary and accent color.
+              </p>
+            <md-divider></md-divider>  
+              <br>
+              
+              <md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+        <md-grid-tile md-rowspan="1" md-colspan="1" md-colspan-sm="1">
+            <md-button class="md-raised" ng-click="changeTheme('default');" layout-fill style="background:#303f9f"></md-button>
+            
+            <md-grid-tile-footer layout-align="center" style="background:#ff4081">
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        
+        <md-grid-tile md-rowspan="1" md-colspan="1" md-colspan-sm="1">
+            <md-button class="md-raised" ng-click="changeTheme('greenIndigo');" layout-fill style="background:#4caf50"></md-button>
+
+            <md-grid-tile-footer layout-align="center" style="background:#536dfe">
+                
+            </md-grid-tile-footer>
+        </md-grid-tile>
+        
+        <md-grid-tile md-rowspan="1" md-colspan="1" md-colspan-sm="1">
+            <md-button class="md-raised" ng-click="changeTheme('redIndigo');" layout-fill style="background:#f44336"></md-button>
+
+            <md-grid-tile-footer layout-align="center" style="background:#536dfe">
+                
+            </md-grid-tile-footer>
+        </md-grid-tile>
+
+    </md-grid-list>
+            </md-list>
+      </md-card-content>
+    </md-card>
+</md-content>
+
+

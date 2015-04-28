@@ -9,3 +9,7 @@ form{
 md-card{
     margin: 0 30px 25px 30px;
 }
+
+md-grid-tile{
+    transition: all 400ms ease-out 50ms;
+}

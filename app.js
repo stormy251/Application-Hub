@@ -5,15 +5,31 @@ var routerApp = angular.module('routerApp', ['ngMaterial','ui.router']);
 routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider){
     //setting the configuration for the app as well as the UI routing.
     
+    //this is to make all theme changes happen at once.
+    $mdThemingProvider.alwaysWatchTheme(true);
+    
     //This is selecting the default theming of the entire site.
-    $mdThemingProvider.theme('default').primaryPalette('red').accentPalette('green');
+    $mdThemingProvider.theme('default').primaryPalette('indigo').accentPalette('pink');
+    $mdThemingProvider.theme('redIndigo').primaryPalette('red').accentPalette('indigo');
     $mdThemingProvider.theme('greenIndigo').primaryPalette('green').accentPalette('indigo');
+
+    //root view
+    $stateProvider.state('root',{
+        url:'',
+        templateUrl: 'home.html'
+    });
     
     //Setting the Route for the Main page.
     $stateProvider.state('home',{
         url:'/home',
         templateUrl: 'home.html'
     });
+    
+    $stateProvider.state('themeManager',{
+        url:'/themeManager',
+        templateUrl: 'themeManager.html'
+    });
+    
     $stateProvider.state('flickrSearch',{
         url:'/flickrSearch',
         templateUrl: 'flickrSearch.html',
@@ -47,6 +63,11 @@ routerApp.controller('ListController',  function($scope, $http, $timeout, $locat
     
     //Selecting the theme
     $scope.themeName = 'default';
+    
+    //Change the theme
+    $scope.changeTheme = function(name){
+        $scope.themeName = name;
+    };
     
     //setting the color of the backdrop for the cards
     $scope.backgroundcolor = "#F2F2F2";
