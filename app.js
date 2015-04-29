@@ -13,7 +13,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
     $mdThemingProvider.theme('redIndigo').primaryPalette('red').accentPalette('indigo');
     $mdThemingProvider.theme('greenIndigo').primaryPalette('green').accentPalette('indigo');
 
-    //root view
+    //root view - this just points the user to the home page.
     $stateProvider.state('root',{
         url:'',
         templateUrl: 'home.html'
@@ -25,11 +25,19 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
         templateUrl: 'home.html'
     });
     
+    //setting the Route for the Theme Manager page
     $stateProvider.state('themeManager',{
         url:'/themeManager',
         templateUrl: 'themeManager.html'
     });
     
+    //Setting the Route for the Weather App page
+    $stateProvider.state('weatherApp',{
+        url:'/weatherApp',
+        templateUrl: 'weatherApp.html'
+    });
+    
+    //Setting the Route for the flickr search page
     $stateProvider.state('flickrSearch',{
         url:'/flickrSearch',
         templateUrl: 'flickrSearch.html',

@@ -1,0 +1,48 @@
+<md-content class="md-padding" style="background-color:{{backgroundcolor}}">
+   
+     <md-card class="md-whiteframe-z2" style="background-color:{{cardBackGround}}" layout="column">
+
+        <!--Card Header-->
+        <md-toolbar class="md-accent" >
+            <h1 class="md-toolbar-tools" layout-align="center">
+                <span>Welcome to the Material Weather App</span>
+            </h1>
+        </md-toolbar>
+
+        <md-card-content  layout="column" layout-align="center center">
+
+            <form>
+                <div layout="row" layout-align="start">
+                    <md-input-container>
+                        <label>Enter Zip Code</label>
+                        <input type="text" style="padding-right:10px" label="City Zip Code" ng-model="CityZipCode" class="long"></input>
+                    </md-input-container>
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <md-icon md-svg-icon="bower_components/icons/ic_search_24px.svg"></md-icon>
+                    </md-button>
+                </div>
+
+
+            </form>
+
+            <md-tabs md-dynamic-height md-border-bottom>
+              <md-tab label="Daily">
+                <md-content class="md-padding">
+                  <p>Place holder for the Daily View</p>
+                </md-content>
+              </md-tab>
+              <md-tab label="Hourly">
+                <md-content class="md-padding">
+                  <p>Placeholder for Hourly View</p>
+                </md-content>
+              </md-tab>
+              <md-tab label="Table">
+                <md-content class="md-padding">
+                  <p>Placeholder for Table view</p>
+                </md-content>
+              </md-tab>
+            </md-tabs>
+
+        </md-card-content>
+    </md-card>
+  </md-content>
