@@ -67,6 +67,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
     });
 });
 
+//this is the main controller for the templated page aka the top bar and sidenav and botnav
 routerApp.controller('ListController',  function($scope, $http, $timeout, $location, $anchorScroll, $mdSidenav, $log, $mdBottomSheet){
     
     //Selecting the theme
