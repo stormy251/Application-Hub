@@ -16,31 +16,31 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
     //root view - this just points the user to the home page.
     $stateProvider.state('root',{
         url:'',
-        templateUrl: 'home.html'
+        templateUrl: 'Views/home.html'
     });
     
     //Setting the Route for the Main page.
     $stateProvider.state('home',{
         url:'/home',
-        templateUrl: 'home.html'
+        templateUrl: 'Views/home.html'
     });
     
     //setting the Route for the Theme Manager page
     $stateProvider.state('themeManager',{
         url:'/themeManager',
-        templateUrl: 'themeManager.html'
+        templateUrl: 'Views/themeManager.html'
     });
     
     //Setting the Route for the Weather App page
     $stateProvider.state('weatherApp',{
         url:'/weatherApp',
-        templateUrl: 'weatherApp.html'
+        templateUrl: 'Views/weatherApp.html'
     });
     
     //Setting the Route for the flickr search page
     $stateProvider.state('flickrSearch',{
         url:'/flickrSearch',
-        templateUrl: 'flickrSearch.html',
+        templateUrl: 'Views/flickrSearch.html',
         controller: function($scope,$http){
             $scope.search = function(){
             $scope.isSearching = true;
@@ -68,7 +68,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
 });
 
 //this is the main controller for the templated page aka the top bar and sidenav and botnav
-routerApp.controller('ListController',  function($scope, $http, $timeout, $location, $anchorScroll, $mdSidenav, $log, $mdBottomSheet){
+routerApp.controller('MainController',  function($scope, $http, $timeout, $location, $anchorScroll, $mdSidenav, $log, $mdBottomSheet){
     
     //Selecting the theme
     $scope.themeName = 'default';
@@ -88,10 +88,10 @@ routerApp.controller('ListController',  function($scope, $http, $timeout, $locat
     $scope.pageName = "HOME";
     
     
-    
+    //this function will allow the user to trigger the open grid bottom sheet tab
     $scope.showGridBottomSheet = function($event){
         $mdBottomSheet.show({
-            templateUrl: 'bottom-sheet-grid.html',
+            templateUrl: 'Views/bottom-sheet-grid.html',
             controller: 'GridBottomSheetCtrl',
             targetEvent: $event
         })  
@@ -115,24 +115,39 @@ routerApp.controller('ListController',  function($scope, $http, $timeout, $locat
           });
       };
     
+    //just called when a page change is triggered
     $scope.changePageName = function(name){
         $scope.pageName = name;    
     };
 
+    //this is a array list of the side navigation links
+    $scope.sideNavLinks = [
+    {
+        pageName: 'HOME',
+        siteName: 'home',
+        thumbNailPath: 'bower_components/icons/ic_home_24px.svg',
+        linkText: 'Home'
+    },
+    {
+        pageName: 'FLICKR SEARCH',
+        siteName: 'flickrSearch',
+        thumbNailPath: 'bower_components/icons/ic_camera_alt_24px.svg',
+        linkText: 'Flickr Search'
+    },
+    {
+        pageName: 'THEME MANAGER',
+        siteName: 'themeManager',
+        thumbNailPath: 'bower_components/icons/ic_color_lens_24px.svg',
+        linkText: 'Theme Manager'
+    },
+    {
+        pageName: 'WEATHER APP',
+        siteName: 'weatherApp',
+        thumbNailPath: 'bower_components/icons/ic_cloud_24px.svg',
+        linkText: 'Weather App'
+    }
+    ];
 });
 
-//this is the bottomsheet controller
-routerApp.controller('GridBottomSheetCtrl',function($scope, $mdBottomSheet){
-    $scope.close = function(){
-        $mdBottomSheet.hide();
-    };
-});
 
-//this is the controller that allows the close function to apply to close the opened instance of the side nav.
-routerApp.controller('LeftCtrl',function($scope, $http, $timeout, $mdSidenav, $log){
-    $scope.close = function() {
-    $mdSidenav('left').close().then(function(){
-        $log.debug("close LEFT is done");
-      });
-    };
-});
+
