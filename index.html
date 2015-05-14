@@ -10,7 +10,7 @@
        
 
     </head>     
-    <body ng-app="routerApp" ng-controller="MainController" layout="column" layout-align="top center" style="background-color:{{backgroundcolor}}" md-theme="{{themeName}}"> 
+    <body ng-app="routerApp" ng-controller="MainController" layout="column" layout-align="top center" md-theme="{{themeName}}"> 
         
         <!-- This is the title bar.        -->
         <md-toolbar class="md-fixed"> 
@@ -30,7 +30,7 @@
         </md-toolbar>   
         <br>
         
-        <md-content>
+        <md-content class="ui-view-container">
             <!--    This is where the router will place content-->
             <div ui-view> 
                     <!-- This is where the differnt views will be placed.-->
