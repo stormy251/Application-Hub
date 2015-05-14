@@ -6,12 +6,9 @@
         <title>Application Hub</title>         
         <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css"/>         
         <link rel="stylesheet" type="text/css" href="CSS/style.css"/>         
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic"/>   
-        <style type="text/css">
-            div.inset{
-                text-decoration: none;   
-            }
-        </style>
+        <script src="bower_components/snap.svg/dist/snap.svg.js"></script>
+       
+
     </head>     
     <body ng-app="routerApp" ng-controller="MainController" layout="column" layout-align="top center" style="background-color:{{backgroundcolor}}" md-theme="{{themeName}}"> 
         
@@ -24,7 +21,7 @@
                 <h2 style="padding-left:20px"> <span>{{pageName}}</span> </h2> 
                 <span flex></span> 
                 <md-button ng-click="goToTop()" class="md-icon-button" aria-label="Move To Top"> 
-                    <md-icon md-svg-icon="bower_components/icons/ic_expand_less_24px.svg"></md-icon>                     
+                    <md-icon md-svg-icon="bower_components/icons/ic_expand_less_24px.svg" ng-show="showCarrot()"></md-icon>                     
                 </md-button>
                 <md-button ng-click="showGridBottomSheet($event)">
                     <md-icon md-svg-icon="bower_components/icons/ic_more_vert_24px.svg"></md-icon>
@@ -62,12 +59,11 @@
                             </md-item-content>
                         </a>
                     </md-item>                
-                </md-list>                 
+                </md-list>    
             </md-content>             
         </md-sidenav>    
         
         <!--Bower dependencies -->
-        <script src="bower_components/snap.svg/dist/snap.svg-min.js"></script>
         <script src="bower_components/angular/angular.min.js"></script>         
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>         
         <script src="bower_components/angular-aria/angular-aria.min.js"></script>         
@@ -81,6 +77,9 @@
         <!-- Controller Imports-->
         <script src="Controllers/GridBottomSheetCtrl.js"></script>
         <script src="Controllers/LeftCtrl.js"></script>
+        
+        <!--My Snaps Script-->
+         <script src="Snaps/mySnaps.js"></script>
         
     </body>     
 </html>

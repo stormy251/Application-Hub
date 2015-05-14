@@ -37,6 +37,12 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
         templateUrl: 'Views/weatherApp.html'
     });
     
+    //Setting the Route for the Snap App page
+    $stateProvider.state('greenSock',{
+        url:'/greenSock',
+        templateUrl: 'Views/greenSock.html'
+    });
+    
     //Setting the Route for the flickr search page
     $stateProvider.state('flickrSearch',{
         url:'/flickrSearch',
@@ -69,6 +75,12 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
 
 //this is the main controller for the templated page aka the top bar and sidenav and botnav
 routerApp.controller('MainController',  function($scope, $http, $timeout, $location, $anchorScroll, $mdSidenav, $log, $mdBottomSheet){
+    
+    //this function is used to determine wheather to show the Scroll up carrot on the title bar or not.
+    $log.warn($location.url());
+    $scope.showCarrot = function(){
+        return($location.url() === '/flickrSearch' || $location.url() === '/flickrSearch#searchBar');
+    };
     
     //Selecting the theme
     $scope.themeName = 'default';
@@ -145,6 +157,12 @@ routerApp.controller('MainController',  function($scope, $http, $timeout, $locat
         siteName: 'weatherApp',
         thumbNailPath: 'bower_components/icons/ic_cloud_24px.svg',
         linkText: 'Weather App'
+    },
+    {
+        pageName: 'GREENSOCK DEMO',
+        siteName: 'greenSock',
+        thumbNailPath: 'bower_components/icons/ic_details_24px.svg',
+        linkText: 'Greensock App'
     }
     ];
 });
