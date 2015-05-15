@@ -34,7 +34,31 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider
     //Setting the Route for the Weather App page
     $stateProvider.state('weatherApp',{
         url:'/weatherApp',
-        templateUrl: 'Views/weatherApp.html'
+        templateUrl: 'Views/weatherApp.html',
+        controller: function($scope, $mdToast, $animate, weatherService,$log) {
+          function fetchWeather(zip) {
+            weatherService.getWeather(zip).then(function(data){
+              $scope.place = data;
+              $scope.showSimpleToast();
+            }); 
+          }
+
+          $scope.showSimpleToast = function() {
+            $mdToast.show(
+              $mdToast.simple()
+                .content("Weather Info was pulled for " + $scope.place.location.city + ', ' + $scope.place.location.region)
+                .position('top right')
+                .hideDelay(5000)
+            );
+          };
+            
+          $scope.findWeather = function(zip) {
+            fetchWeather(zip);
+          };
+            
+          $scope.showLocation = false;
+
+        }
     });
     
     //Setting the Route for the Snap App page

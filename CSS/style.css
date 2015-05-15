@@ -67,3 +67,16 @@ to prevent collapsing during animation*/
   -moz-transform:translate3d(100px, 0, 0);
   transform:translate3d(100px, 0, 0);
 }
+
+/*-------------------------------------------------------------------------------*/
+/*This Section here is just the animation for when adding or removing a card apps*/
+/*-------------------------------------------------------------------------------*/
+
+
+.cardFade {
+    transition: 0.75s linear all;
+    opacity: 1;
+}
+.cardFade.ng-hide {
+    opacity: 0;
+}
