@@ -48,7 +48,7 @@
             <md-content ng-controller="LeftCtrl"> 
                 <md-list layout="column"> 
                     <md-subheader flex class="md-no-sticky">Choose your app</md-subheader>
-                    <md-item ng-repeat='link in sideNavLinks' ng-click="close(); changePageName(link.pageName);" class="hvr-underline-reveal" ui-sref={{link.siteName}}>
+                    <md-item ng-repeat='link in sideNavLinks' ng-click="close(); changePageName(link.pageName);" class="hvr-underline-reveal" ui-sref={{link.siteName}} style="cursor:pointer">
                         <a>
                             <md-item-content md-ink-ripple layout="row" layout-align="start center">
                                 <div class="inset">
