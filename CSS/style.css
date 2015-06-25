@@ -96,15 +96,13 @@ to prevent collapsing during animation*/
 .dayContainer {
     width: 19%;
     height: 200px;
-    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
-    transition: width .05s;
-    display:inline-table;
+    overflow: hidden;
     border-style:ridge;
-    border-width:3px;
+    float:left;
 }
 
-.highTempDetails{
-    line-height: 200px; 
+.highTempSummary{
+    line-height: 100px;
     font-size:44px;  
     content:"";
 }
@@ -112,6 +110,10 @@ to prevent collapsing during animation*/
 .dayContainer:hover {
     width: 19%;
     border-style:inset;
+}
+
+.dayContainer:hover .highTempSummary{
+    display:none;
 }
 
 .dayContainer:hover .hover-content {
@@ -123,5 +125,4 @@ to prevent collapsing during animation*/
     width:100%;
     text-align: left;
     padding:5px;
-    position: relative;
 }

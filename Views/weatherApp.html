@@ -55,22 +55,22 @@
                     
                   <md-tab label="5 Day Forecast">
                     <md-content class="md-padding">
-                      <p>
+                      <p align="center">
                         <div id="container" ng-show="place">
                             <div class = "dayContainer"  ng-repeat="n in [0, 1, 2, 3, 4] track by $index">
-                                <span class = "highTempDetails">
+                                <div class = "highTempSummary">
                                     {{place.item.forecast[n].day}} - {{place.item.forecast[n].high}}°F
-                                </span>
-                                <span class = "hover-content">
-                                    <u>{{place.item.forecast[n].day}} - {{place.item.forecast[n].date}} </u> <br />
-                                    High: {{place.item.forecast[n].high}} <br />
-                                    Low: {{place.item.forecast[n].low}} <br />
-                                    Forecast: {{place.item.forecast[n].text}}
-                                </span>
+                                </div>
+                                    <div class = "hover-content">
+                                        <u>{{place.item.forecast[n].day}} - {{place.item.forecast[n].date}} </u> <br />
+                                        High: {{place.item.forecast[n].high}} <br />
+                                        Low: {{place.item.forecast[n].low}} <br />
+                                        Forecast: {{place.item.forecast[n].text}}
+                                    </div>
                             </div>
                         </div>
-                    </p>
-                    </md-content>
+                      </p>
+                   </md-content>
                   </md-tab>
                   <md-tab label="Table">
                     <md-content class="md-padding">
