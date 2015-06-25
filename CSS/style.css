@@ -89,6 +89,8 @@ to prevent collapsing during animation*/
     width:90%; 
     border:none;
     text-align:center;
+    align-content: space-around;
+    margin:0 auto;
 }
 
 .dayContainer {
@@ -99,7 +101,6 @@ to prevent collapsing during animation*/
     display:inline-table;
     border-style:ridge;
     border-width:3px;
-    margin-right:1px;
 }
 
 .highTempDetails{
