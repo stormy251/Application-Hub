@@ -80,3 +80,47 @@ to prevent collapsing during animation*/
 .cardFade.ng-hide {
     opacity: 0;
 }
+
+/*-----------------------------------------------------*/
+/* This section stylizes the weather container section*/
+/*-----------------------------------------------------*/
+
+#container {
+    width:90%; 
+    border:none;
+    text-align:center;
+}
+
+.dayContainer {
+    width: 19%;
+    height: 200px;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width .05s;
+    display:inline-table;
+    border-style:ridge;
+    border-width:3px;
+    margin-right:1px;
+}
+
+.highTempDetails{
+    line-height: 200px; 
+    font-size:44px;  
+    content:"";
+}
+
+.dayContainer:hover {
+    width: 19%;
+    border-style:inset;
+}
+
+.dayContainer:hover .hover-content {
+    display:block;
+}
+    
+.hover-content {
+    display:none;
+    width:100%;
+    text-align: left;
+    padding:5px;
+    position: relative;
+}
