@@ -39,15 +39,39 @@
 
 
                 <md-tabs md-dynamic-height md-border-bottom>
-                  <md-tab label="Daily">
+                  <md-tab label="Current Temp">
                     <md-content class="md-padding">
-                      <p>Placeholder for some stuff</p>
+
+                      <p ng-show="place">
+                        Temperature pulled at {{place.item.condition.date}} <br />
+                        Degrees: {{place.item.condition.temp}} °F.<br />
+                        Details: <br />
+                          The weather is {{place.item.condition.text | lowercase}}. <br />
+                          The sun will rise at {{place.astronomy.sunrise}} today. <br />
+                          The sun will set at {{place.astronomy.sunset}} tonight. <br />
+                          The current humidity level is {{place.atmosphere.humidity}}. <br />
+                      </p>
                     </md-content>
                   </md-tab>
-                  <md-tab label="Hourly">
+                    
+                  <md-tab label="5 Day Forecast">
                     <md-content class="md-padding">
-                      <p>Placeholder for Hourly View</p>
-                    </md-content>
+                      <p align="center">
+                        <div id="container" ng-show="place">
+                            <div class = "dayContainer"  ng-repeat="n in [0, 1, 2, 3, 4] track by $index">
+                                <div class = "highTempSummary">
+                                    {{place.item.forecast[n].day}} - {{place.item.forecast[n].high}}°F
+                                </div>
+                                    <div class = "hover-content">
+                                        <u>{{place.item.forecast[n].day}} - {{place.item.forecast[n].date}} </u> <br />
+                                        High: {{place.item.forecast[n].high}} <br />
+                                        Low: {{place.item.forecast[n].low}} <br />
+                                        Forecast: {{place.item.forecast[n].text}}
+                                    </div>
+                            </div>
+                        </div>
+                      </p>
+                   </md-content>
                   </md-tab>
                   <md-tab label="Table">
                     <md-content class="md-padding">
