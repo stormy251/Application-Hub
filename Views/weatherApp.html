@@ -64,8 +64,6 @@
                             <md-grid-tile class = "dayContainer"  ng-repeat="n in [0, 1, 2, 3, 4] track by $index">
                                 <span class = "highTempSummary">{{place.item.forecast[n].day}} ({{place.item.forecast[n].high}}°F) <br /></span>
                                 <div class = "hover-content">
-                            <!-- Details to be added for ng-mouseover/ng-mouseleave http://www.andrewboni.com/2013/08/25/show-and-hide-elements-with-angularjs/
-                            -->
                                     <u>{{place.item.forecast[n].day}} - {{place.item.forecast[n].date}} </u> <br />
                                     High: {{place.item.forecast[n].high}} <br />
                                     Low: {{place.item.forecast[n].low}} <br />
