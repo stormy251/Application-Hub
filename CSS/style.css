@@ -86,24 +86,19 @@ to prevent collapsing during animation*/
 /*-----------------------------------------------------*/
 
 #container {
-    width:90%; 
     border:none;
-    text-align:center;
-    align-content: space-around;
     margin:0 auto;
 }
 
 .dayContainer {
     width: 19%;
-    height: 200px;
     overflow: hidden;
-    border-style:ridge;
-    float:left;
+    border-style:ridge; 
 }
 
 .highTempSummary{
-    line-height: 100px;
-    font-size:44px;  
+    font-size:44px; 
+    text-align: center;
     content:"";
 }
 
@@ -122,7 +117,6 @@ to prevent collapsing during animation*/
     
 .hover-content {
     display:none;
-    width:100%;
     text-align: left;
     padding:5px;
 }
