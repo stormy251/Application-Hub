@@ -53,7 +53,9 @@
                       </p>
                     </md-content>
                   </md-tab>
-                                        
+                  <md-tab label="5 Day Forecast">
+                    <md-content class="md-padding">
+                      <p>
                         <div id="container" ng-show="place">
                         <md-grid-list
                           md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" 
@@ -61,17 +63,20 @@
                           md-gutter="8px" md-gutter-gt-sm="4px">
                             <md-grid-tile class = "dayContainer"  ng-repeat="n in [0, 1, 2, 3, 4] track by $index">
                                 <span class = "highTempSummary">{{place.item.forecast[n].day}} ({{place.item.forecast[n].high}}°F) <br /></span>
-                            </md-grid-tile >
-                            <!-- Details to be added for ng-mouseover/ng-mouseleave + functions
-                                    <md-grid-tile class = "hover-content">
-                                        <u>{{place.item.forecast[n].day}} - {{place.item.forecast[n].date}} </u> <br />
-                                        High: {{place.item.forecast[n].high}} <br />
-                                        Low: {{place.item.forecast[n].low}} <br />
-                                        Forecast: {{place.item.forecast[n].text}}
-                                    </md-grid-tile >
+                                <div class = "hover-content">
+                            <!-- Details to be added for ng-mouseover/ng-mouseleave http://www.andrewboni.com/2013/08/25/show-and-hide-elements-with-angularjs/
                             -->
+                                    <u>{{place.item.forecast[n].day}} - {{place.item.forecast[n].date}} </u> <br />
+                                    High: {{place.item.forecast[n].high}} <br />
+                                    Low: {{place.item.forecast[n].low}} <br />
+                                    Forecast: {{place.item.forecast[n].text}}
+                                </div >
+                            </md-grid-tile >
                         </md-grid-list>
                         </div>
+                      </p>
+                   </md-content>
+                  </md-tab>
                   <md-tab label="Table">
                     <md-content class="md-padding">
                       <p>Placeholder for Table view</p>
